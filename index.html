@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instant Messenger</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Instant Messenger</h1>
+      <div id="meArea" class="hidden">
+        <img id="meAvatar" class="avatar" alt="avatar"/>
+        <span id="meName"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="authSection">
+        <div class="card">
+          <h2>Sign Up</h2>
+          <input id="su_username" placeholder="Username"/>
+          <input id="su_display" placeholder="Display name"/>
+          <input id="su_password" type="password" placeholder="Password"/>
+          <button id="signupBtn">Create account</button>
+        </div>
+        <div class="card">
+          <h2>Log In</h2>
+          <input id="li_username" placeholder="Username"/>
+          <input id="li_password" type="password" placeholder="Password"/>
+          <button id="loginBtn">Log in</button>
+        </div>
+      </section>
+
+      <section id="chatSection" class="hidden">
+        <aside id="sidebar">
+          <div class="profile-edit">
+            <h2>My Profile</h2>
+            <input id="profile_display" placeholder="Display name"/>
+            <input id="profile_avatar" placeholder="Avatar URL (optional)"/>
+            <textarea id="profile_bio" placeholder="Bio"></textarea>
+            <button id="saveProfileBtn">Save</button>
+          </div>
+          <hr/>
+          <h2>Users</h2>
+          <ul id="userList"></ul>
+        </aside>
+
+        <section id="chatPane">
+          <div id="chatHeader">Select a user to start chatting.</div>
+          <div id="messages"></div>
+          <div id="composer" class="hidden">
+            <input id="messageInput" placeholder="Type a message and hit Enter"/>
+            <button id="sendBtn">Send</button>
+            <div id="typingHint"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/chat.js"></script>
+</body>
+</html>
